@@ -15,10 +15,22 @@ class Api::V1::RecipesController < ApplicationController
 
   # POST /recipes
   def create
-    @recipe = Recipe.new(recipe_params)
+    #Find recipe or create a new recipe
+    @recipe = Recipe.create_with(recipe_params).find_or_create_by(api_id: recipe_params[:api_id])
 
-    if @recipe.save
-      render json: @recipe, status: :created, location: @recipe
+    #Find if user has this recipe's favorite
+    @favorite = @recipe.favorites.find_favorite(params)      
+
+    if !@favorite.persisted?
+      @favorite = @recipe.favorites.create(like: params[:favorite][:like], review: params[:favorite][:review], user_id:params[:favorite][:user_id])
+
+      render json: @recipe, status: :created
+
+    elsif @favorite.persisted?
+      @favorite.update(like: params[:favorite][:like], review: params[:favorite][:review])
+
+      render json: @recipe
+
     else
       render json: @recipe.errors, status: :unprocessable_entity
     end
@@ -46,6 +58,6 @@ class Api::V1::RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.require(:recipe).permit(:title, :image)
+      params.require(:recipe).permit(:title, :image, :api_id)
     end
 end
