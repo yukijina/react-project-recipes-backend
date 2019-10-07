@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 yuki = User.create(username: "yuki", password: "test")
+stacey = User.create(username: "stacey", password: "test")
