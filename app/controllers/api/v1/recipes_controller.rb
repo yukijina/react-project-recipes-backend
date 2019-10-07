@@ -15,6 +15,8 @@ class Api::V1::RecipesController < ApplicationController
 
   # POST /recipes
   def create
+    # if params[:recipe][:title].nil?
+    #   @recipe = Recipe.find_by(api_id: params[:api_id])
     #Find recipe or create a new recipe
     @recipe = Recipe.create_with(recipe_params).find_or_create_by(api_id: recipe_params[:api_id])
 
@@ -22,7 +24,7 @@ class Api::V1::RecipesController < ApplicationController
     @favorite = @recipe.favorites.find_favorite(params)      
 
     if !@favorite.persisted?
-      @favorite = @recipe.favorites.create(like: params[:favorite][:like], review: params[:favorite][:review], user_id:params[:favorite][:user_id])
+      @favorite = @recipe.favorites.create(like: params[:favorite][:like], review: params[:favorite][:review], user_id: params[:favorite][:user_id])
 
       render json: @recipe, status: :created
 
