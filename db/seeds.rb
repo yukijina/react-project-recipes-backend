@@ -6,5 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-yuki = User.create(username: "yuki", password: "test")
-stacey = User.create(username: "stacey", password: "test")
+#  yuki = User.create(username: "yuki", password: "test")
+#  stacey = User.create(username: "stacey", password: "test")
+
+def create_user(names)
+    names.map do |name|
+        User.create!(
+            username: name,
+            password: "test"
+    )
+    end 
+end 
+
+
+create_user(["yuki", "julie", "paul", "stacey", "john"])
