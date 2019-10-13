@@ -21,7 +21,9 @@ class Api::V1::UsersController < ApplicationController
 
       render json: @user, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {
+                error: "Username is already taken. Please try with another username."
+            }   
     end
   end
 
