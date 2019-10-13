@@ -7,4 +7,8 @@ class Favorite < ApplicationRecord
             favorite.user_id = params[:favorite][:user_id]
         end
     end 
+
+    def user_name
+        self.user.username
+    end
 end
