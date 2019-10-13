@@ -1,7 +1,7 @@
 # I COOK
 React/Redux with Ruby on Rails API Project.
 Fetching external data from spoonaponacular API, persisting with Ruby on Rails, and rendering recipes to the App.
-This App is only backend with Ruby on Rails. The details of frontend repo follows.
+This App is only backend with Ruby on Rails. The details of frontend repo follow.
 
 ## About this project
 After users sign up or log in, users can search recipes, add to their favorites and write a review.
@@ -13,14 +13,14 @@ After users sign up or log in, users can search recipes, add to their favorites 
 
 
 ### Database creation and initialization
-- PostgreSQL.
+- PostgreSQL
 
 ### Deployment instructions
 - Make sure you have Ruby and Bundler.
 
-### Usage
-## Backend Ruby on Rails
-- Check out/clone the repository for Rails API (this repo)
+## Usage
+### Backend Ruby on Rails
+- Clone and check out the repository for Rails API (this repo)
 `https://github.com/yukijina/react-project-recipes-backend`
 
 - Run `Bundle install`
@@ -33,8 +33,8 @@ Run `rails -s`
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 
-## Frontend React/Redux
-- Check out/clone the repository for client side, handled with React/Redux
+### Frontend React/Redux
+- Clone and check out the repository for client side, handled with React/Redux
 `https://github.com/yukijina/react-project-recipes-client`
 
 
