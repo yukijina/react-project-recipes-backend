@@ -8,7 +8,7 @@ class Api::V1::SessionsController < ApplicationController
             render json: @user
         else
             render json: {
-                error: "Invarid Credentials"
+                error: "Invarid. Pleaset try again."
             }    
         end
     end
